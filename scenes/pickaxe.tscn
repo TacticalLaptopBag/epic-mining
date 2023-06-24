@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd0a0nk5wgrpw"]
+
+[ext_resource type="PackedScene" uid="uid://cq0obbtmed4c4" path="res://models/pickaxe.blend" id="1_82oa7"]
+
+[node name="pickaxe" instance=ExtResource("1_82oa7")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)

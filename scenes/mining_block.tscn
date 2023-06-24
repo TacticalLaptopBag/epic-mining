@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0eravo672kb6"]
+
+[ext_resource type="Script" path="res://src/MiningBlock.gd" id="1_qi3b7"]
+[ext_resource type="Script" path="res://src/mining_sounds.gd" id="2_wu7al"]
+[ext_resource type="PackedScene" uid="uid://dwtls1ou27chd" path="res://scenes/block_destroy_sound.tscn" id="3_b6li3"]
+
+[node name="MiningBlock" type="CSGBox3D"]
+use_collision = true
+size = Vector3(3, 3, 3)
+script = ExtResource("1_qi3b7")
+
+[node name="Right" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.501, 0, 0)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="Left" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.501, 0, 0)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="Front" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.501)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="Back" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.501)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="Top" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.501, 0)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="Bottom" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.501, 0)
+pixel_size = 0.1875
+texture_filter = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("2_wu7al")
+destroy_sound_emitter = ExtResource("3_b6li3")
+
+[connection signal="on_death" from="." to="AudioStreamPlayer3D" method="_on_death"]
+[connection signal="on_health_changed" from="." to="AudioStreamPlayer3D" method="_on_health_changed"]

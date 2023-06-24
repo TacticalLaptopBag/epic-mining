@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddytehl3wbckb"]
+
+[ext_resource type="PackedScene" uid="uid://ilbus2xiq2m7" path="res://scenes/player.tscn" id="1_l146p"]
+[ext_resource type="PackedScene" uid="uid://b0eravo672kb6" path="res://scenes/mining_block.tscn" id="2_rtvmo"]
+
+[node name="ProtoWorld" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(10, 0.1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.10224, 0)
+use_collision = true
+size = Vector3(1, 0.1, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_l146p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.816137, -0.214598, 0.536533, 0, 0.928486, 0.371368, -0.577858, 0.303087, -0.757772, 0, 0, 0)
+
+[node name="MiningBlock" parent="." instance=ExtResource("2_rtvmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.05, 0)
+
+[node name="MiningBlock2" parent="." instance=ExtResource("2_rtvmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.05, 2.3186)
+
+[node name="MiningBlock3" parent="." instance=ExtResource("2_rtvmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.05, -2.30218)
+
+[node name="MiningBlock4" parent="." instance=ExtResource("2_rtvmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47474, 1.05, -3.90179)
+
+[node name="MiningBlock5" parent="." instance=ExtResource("2_rtvmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56891, 1.05, 3.85933)

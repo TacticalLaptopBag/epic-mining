@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ore" load_steps=3 format=3 uid="uid://bl4vstchvnxkv"]
+
+[ext_resource type="Material" uid="uid://cfwn8a5ifjh7d" path="res://materials/mining-block/iron.tres" id="1_4jvyt"]
+[ext_resource type="Script" path="res://src/ore.gd" id="1_xbxxf"]
+
+[resource]
+script = ExtResource("1_xbxxf")
+block_type = 2
+display_name = "Iron"
+chance_of_spawn = 20
+minimum_depth = 3
+price = 50
+material = ExtResource("1_4jvyt")

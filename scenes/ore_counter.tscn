@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4lk3rht6sqcs"]
+
+[ext_resource type="Script" path="res://src/ore_counter.gd" id="1_i5i05"]
+
+[node name="OreCounter" type="PanelContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 120.0
+grow_vertical = 0
+script = ExtResource("1_i5i05")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Diamond: 100"
+horizontal_alignment = 1

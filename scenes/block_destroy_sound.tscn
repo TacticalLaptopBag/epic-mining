@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwtls1ou27chd"]
+
+[ext_resource type="Script" path="res://src/block_destroy_sound.gd" id="1_hh5w2"]
+
+[node name="BlockDestroySound" type="AudioStreamPlayer3D"]
+unit_size = 50.5
+script = ExtResource("1_hh5w2")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

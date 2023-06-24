@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://5cumsknwbn0o"]
+
+[ext_resource type="PackedScene" uid="uid://ilbus2xiq2m7" path="res://scenes/player.tscn" id="2_8bidq"]
+[ext_resource type="Script" path="res://src/cave.gd" id="2_fywwo"]
+[ext_resource type="PackedScene" uid="uid://dv63uj0sewbuc" path="res://scenes/walls.tscn" id="3_rxqbs"]
+[ext_resource type="PackedScene" uid="uid://dy8hf1y4b0x1i" path="res://scenes/inventory.tscn" id="4_bxg5v"]
+
+[node name="Mine" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 5)
+use_collision = true
+size = Vector3(43, 3, 20)
+
+[node name="Player" parent="." instance=ExtResource("2_8bidq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4641, 0)
+JUMP_VELOCITY = 18.0
+
+[node name="Cave" type="Node3D" parent="." node_paths=PackedStringArray("walls_container")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -1.5, -39.5)
+script = ExtResource("2_fywwo")
+walls_container = NodePath("../WallsContainer")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.893701, 0.358677, -0.269537, 0, 0.600755, 0.799433, 0.448664, -0.714454, 0.536895, 0, 0, 0)
+
+[node name="WallsContainer" type="Node3D" parent="."]
+
+[node name="Walls" parent="WallsContainer" instance=ExtResource("3_rxqbs")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("4_bxg5v")]
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 120.0
+grow_horizontal = 1
+size_flags_horizontal = 0

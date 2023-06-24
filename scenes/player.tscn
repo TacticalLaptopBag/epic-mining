@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ilbus2xiq2m7"]
+
+[ext_resource type="Script" path="res://src/player.gd" id="1_7og8p"]
+[ext_resource type="PackedScene" uid="uid://bd0a0nk5wgrpw" path="res://scenes/pickaxe.tscn" id="2_0lpct"]
+[ext_resource type="Script" path="res://src/pickaxe.gd" id="2_7832q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_05u1o"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_7og8p")
+JUMP_VELOCITY = 15.0
+mouse_sensitivity = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_05u1o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_7832q")
+pickaxe_range = 9
+
+[node name="pickaxe" parent="Camera3D" instance=ExtResource("2_0lpct")]
+transform = Transform3D(-4.37114e-09, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 1.91069e-16, 0.167547, -0.11976, -0.256987)

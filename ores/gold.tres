@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ore" load_steps=3 format=3 uid="uid://cn2cum4ila67u"]
+
+[ext_resource type="Material" uid="uid://b734ix7lo4cli" path="res://materials/mining-block/gold.tres" id="1_j5btg"]
+[ext_resource type="Script" path="res://src/ore.gd" id="1_yfclv"]
+
+[resource]
+script = ExtResource("1_yfclv")
+block_type = 3
+display_name = "Gold"
+chance_of_spawn = 15
+minimum_depth = 10
+price = 75
+material = ExtResource("1_j5btg")
