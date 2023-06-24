@@ -24,8 +24,6 @@ func _ready():
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		_look(MOUSE_FACTOR, event.relative)
-	if Input.is_action_just_pressed("menu"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED 
 
 func _process(delta: float):
 	_look(JOYPAD_FACTOR, Input.get_vector("look_left", "look_right", "look_up", "look_down"))

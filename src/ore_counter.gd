@@ -1,8 +1,7 @@
 extends Control
 
-var ore: String
-@onready var label := $"Label"
+var ore: Ore
+@onready var label: Label = $"Label"
 
 func _process(_delta):
-	if ore.is_empty(): return
-	label.text = ore+": "+str(PlayerStats.ore_counts[ore])
+	label.text = ore.display_name+": "+str(PlayerStats.ore_counts[ore.display_name])

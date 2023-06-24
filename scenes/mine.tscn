@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5cumsknwbn0o"]
+[gd_scene load_steps=6 format=3 uid="uid://5cumsknwbn0o"]
 
 [ext_resource type="PackedScene" uid="uid://ilbus2xiq2m7" path="res://scenes/player.tscn" id="2_8bidq"]
 [ext_resource type="Script" path="res://src/cave.gd" id="2_fywwo"]
 [ext_resource type="PackedScene" uid="uid://dv63uj0sewbuc" path="res://scenes/walls.tscn" id="3_rxqbs"]
 [ext_resource type="PackedScene" uid="uid://dy8hf1y4b0x1i" path="res://scenes/inventory.tscn" id="4_bxg5v"]
+[ext_resource type="Script" path="res://src/sell.gd" id="5_ut6yd"]
 
 [node name="Mine" type="Node3D"]
 
@@ -36,3 +37,31 @@ anchor_right = 0.0
 offset_right = 120.0
 grow_horizontal = 1
 size_flags_horizontal = 0
+
+[node name="Menu" type="PanelContainer" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -15.0
+offset_right = 96.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
+layout_mode = 2
+
+[node name="Shop" type="Button" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Shop"
+
+[node name="Sell" type="Button" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Sell all Ores"
+script = ExtResource("5_ut6yd")
+
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Sell" to="UI/Menu/VBoxContainer/Sell" method="_on_pressed"]

@@ -56,3 +56,4 @@ func update_decals():
 
 func death():
 	PlayerStats.ore_counts[ore.display_name] += 1
+	PlayerStats.save_stats()
