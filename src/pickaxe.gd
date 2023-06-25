@@ -17,9 +17,10 @@ func _ready():
 	)
 
 func _unhandled_input(_event: InputEvent):
+	# Don't cancel mining if we are currently mining a block
 	mining = Input.is_action_pressed("mine") or current_block != null
 
-func _physics_process(_delta):
+func _physics_process(_delta: float):
 	if mining:
 		update_current_block()
 		mine_current_block()
@@ -38,11 +39,14 @@ func update_current_block():
 
 	if collider != null and collider.is_in_group("MiningBlock"):
 		if (current_block != null and current_block == collider) or current_block == null:
+			# Player is still looking at current block or started mining a new block
 			current_block = collider
 		else:
+			# Cancel mining - player looked at another block
 			current_block = null
 			mining = false
 	else:
+		# Player is not looking at a block
 		current_block = null
 
 
