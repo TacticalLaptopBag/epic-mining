@@ -1,4 +1,5 @@
 extends Node
+# This isn't ideal, but I'm not working on this long term and this gets the job done
 
 var player: Player
 var ores := {}
