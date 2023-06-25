@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5cumsknwbn0o"]
+[gd_scene load_steps=12 format=3 uid="uid://5cumsknwbn0o"]
 
 [ext_resource type="PackedScene" uid="uid://ilbus2xiq2m7" path="res://scenes/player.tscn" id="2_8bidq"]
 [ext_resource type="Script" path="res://src/cave.gd" id="2_fywwo"]
@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://dy8hf1y4b0x1i" path="res://scenes/inventory.tscn" id="4_bxg5v"]
 [ext_resource type="Script" path="res://src/menu.gd" id="5_2ixot"]
 [ext_resource type="Script" path="res://src/sell.gd" id="5_ut6yd"]
+[ext_resource type="Script" path="res://src/pickaxe_upgrade.gd" id="6_phmvw"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_c1pm6"]
+
+[sub_resource type="Sky" id="Sky_d6ia7"]
+sky_material = SubResource("PhysicalSkyMaterial_c1pm6")
+
+[sub_resource type="Environment" id="Environment_vgwl4"]
+background_mode = 2
+sky = SubResource("Sky_d6ia7")
+ambient_light_source = 3
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vnvh8"]
 
 [node name="Mine" type="Node3D"]
 
@@ -57,11 +73,19 @@ layout_mode = 2
 
 [node name="Shop" type="Button" parent="UI/Menu/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Shop"
+text = "Upgrade Pickaxe"
+script = ExtResource("6_phmvw")
+cost = 500
+speed_increase = 0.05
 
 [node name="Sell" type="Button" parent="UI/Menu/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Sell all Ores"
 script = ExtResource("5_ut6yd")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vgwl4")
+camera_attributes = SubResource("CameraAttributesPhysical_vnvh8")
+
+[connection signal="pressed" from="UI/Menu/Panel/VBoxContainer/Shop" to="UI/Menu/Panel/VBoxContainer/Shop" method="_on_pressed"]
 [connection signal="pressed" from="UI/Menu/Panel/VBoxContainer/Sell" to="UI/Menu/Panel/VBoxContainer/Sell" method="_on_pressed"]

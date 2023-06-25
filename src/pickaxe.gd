@@ -9,16 +9,22 @@ const ANIM_TIME = 0.75
 var pick_ready := true
 var auto_repeat := false
 var current_block: MiningBlock = null
+var mining := false
 
 func _ready():
 	anim_player.animation_finished.connect(
 		func(_anim_name: String): pick_ready = true
 	)
 
+func _unhandled_input(_event: InputEvent):
+	mining = Input.is_action_pressed("mine")
+
 func _physics_process(_delta):
-	if Input.is_action_pressed("mine"):
+	if mining:
 		update_current_block()
 		mine_current_block()
+	
+	anim_player.speed_scale = PlayerStats.pickaxe_speed
 
 func update_current_block():
 	var mouse_pos := get_viewport().get_mouse_position()

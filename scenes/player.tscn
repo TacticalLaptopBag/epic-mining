@@ -21,3 +21,8 @@ pickaxe_range = 9
 
 [node name="pickaxe" parent="Camera3D" instance=ExtResource("2_0lpct")]
 transform = Transform3D(-4.37114e-09, 0.1, -4.37114e-09, 0, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 1.91069e-16, 0.167547, -0.11976, -0.256987)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+light_energy = 2.0
+spot_range = 9.0
+spot_angle = 35.0

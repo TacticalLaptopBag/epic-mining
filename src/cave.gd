@@ -46,8 +46,6 @@ func spawn_block(grid_position: Vector3):
 	var ore = get_random_ore(depth)
 	new_block.ore = ore
 	add_child(new_block)
-	
-	print("Ore Spawned: "+str(ore.display_name))
 
 func spawn_walls():
 	var new_walls := walls.instantiate() as Node3D

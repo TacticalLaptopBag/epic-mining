@@ -4,7 +4,7 @@ const SAVE_PATH = "user://epic_mining.json"
 
 var ore_counts := {}
 var money := 0
-var pickaxe_speed := 1
+var pickaxe_speed := 1.0
 
 func _ready():
 	for ore_name in Refs.ores.keys():
