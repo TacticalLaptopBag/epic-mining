@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn0o1fsvbq4xd"]
+
+[ext_resource type="PackedScene" uid="uid://3wrbkkqhk18w" path="res://models/highlight.blend" id="1_wbgi8"]
+[ext_resource type="Material" uid="uid://b02vv7rmrxe3j" path="res://materials/mining-block/selection.tres" id="2_k25ih"]
+
+[node name="highlight" instance=ExtResource("1_wbgi8")]
+
+[node name="Cube001" parent="." index="0"]
+material_override = ExtResource("2_k25ih")
