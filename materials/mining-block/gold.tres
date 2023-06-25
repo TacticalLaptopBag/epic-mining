@@ -1,10 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b734ix7lo4cli"]
 
-[ext_resource type="Texture2D" uid="uid://bwfh3fqejwxs" path="res://textures/dirt.png" id="1_0qb02"]
+[ext_resource type="Texture2D" uid="uid://diy5y8pwunj1k" path="res://textures/ore.png" id="1_aco5a"]
 
 [resource]
 albedo_color = Color(0.960784, 0.607843, 0, 1)
-albedo_texture = ExtResource("1_0qb02")
+albedo_texture = ExtResource("1_aco5a")
 metallic = 1.0
 metallic_specular = 0.4
 roughness = 0.33
