@@ -17,7 +17,7 @@ func _ready():
 	)
 
 func _unhandled_input(_event: InputEvent):
-	mining = Input.is_action_pressed("mine")
+	mining = Input.is_action_pressed("mine") or current_block != null
 
 func _physics_process(_delta):
 	if mining:
@@ -37,7 +37,11 @@ func update_current_block():
 	var collider = result.get("collider")
 
 	if collider != null and collider.is_in_group("MiningBlock"):
-		current_block = collider
+		if (current_block != null and current_block == collider) or current_block == null:
+			current_block = collider
+		else:
+			current_block = null
+			mining = false
 	else:
 		current_block = null
 
@@ -52,3 +56,4 @@ func mine_current_block():
 	current_block.health -= 1
 	if current_block.health <= 0:
 		current_block = null
+		mining = false
