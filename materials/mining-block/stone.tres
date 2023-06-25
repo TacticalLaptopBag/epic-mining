@@ -1,5 +1,8 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0buexyrkccia"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0buexyrkccia"]
+
+[ext_resource type="Texture2D" uid="uid://bwfh3fqejwxs" path="res://textures/dirt.png" id="1_mj063"]
 
 [resource]
 albedo_color = Color(0.298039, 0.301961, 0.329412, 1)
+albedo_texture = ExtResource("1_mj063")
 roughness = 0.8
