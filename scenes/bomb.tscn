@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://drj266uau2sis"]
+
+[ext_resource type="Script" path="res://src/bomb.gd" id="1_gv0dk"]
+[ext_resource type="PackedScene" uid="uid://fraxfcql0kkt" path="res://models/bomb.blend" id="1_jbowa"]
+[ext_resource type="PackedScene" uid="uid://dugbeq24s8wlo" path="res://scenes/sound_player.tscn" id="2_et4fj"]
+[ext_resource type="AudioStream" uid="uid://coeabbqf74vlr" path="res://sounds/explosion.mp3" id="3_i76ni"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhq1h"]
+radius = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dt2ej"]
+radius = 0.24987
+height = 0.605593
+
+[node name="Bomb" type="RigidBody3D"]
+collision_priority = 10.0
+input_ray_pickable = false
+script = ExtResource("1_gv0dk")
+sound_player = ExtResource("2_et4fj")
+explode_sounds = Array[AudioStream]([ExtResource("3_i76ni")])
+explosion_shape = SubResource("SphereShape3D_nhq1h")
+
+[node name="bomb" parent="." instance=ExtResource("1_jbowa")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0529843, 0)
+shape = SubResource("CapsuleShape3D_dt2ej")

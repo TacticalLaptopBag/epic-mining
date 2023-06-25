@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0eravo672kb6"]
+[gd_scene load_steps=16 format=3 uid="uid://b0eravo672kb6"]
 
 [ext_resource type="Script" path="res://src/MiningBlock.gd" id="1_qi3b7"]
 [ext_resource type="Script" path="res://src/mining_sounds.gd" id="2_wu7al"]
-[ext_resource type="PackedScene" uid="uid://dwtls1ou27chd" path="res://scenes/block_destroy_sound.tscn" id="3_b6li3"]
+[ext_resource type="PackedScene" uid="uid://dugbeq24s8wlo" path="res://scenes/sound_player.tscn" id="3_ui2v3"]
 [ext_resource type="AudioStream" uid="uid://dk2l6jf1tbdl5" path="res://sounds/pick_hit/pick_hit_1.wav" id="4_3ukv7"]
 [ext_resource type="AudioStream" uid="uid://e81bq0n883gb" path="res://sounds/pick_hit/pick_hit_2.wav" id="5_tjpe2"]
 [ext_resource type="AudioStream" uid="uid://ds6l7dgyfqodx" path="res://sounds/pick_hit/pick_hit_3.wav" id="6_tld40"]
@@ -11,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://clyt4ouynjpk" path="res://sounds/pick_hit/pick_hit_6.wav" id="9_g2ifj"]
 [ext_resource type="AudioStream" uid="uid://repfdu1aixtw" path="res://sounds/pick_hit/pick_hit_7.wav" id="10_8yix0"]
 [ext_resource type="AudioStream" uid="uid://dv5umd6u4ba0i" path="res://sounds/pick_hit/pick_hit_8.wav" id="11_uj7rk"]
+[ext_resource type="AudioStream" uid="uid://5ekb7esar4e5" path="res://sounds/block_destroy/block_destroy_2.wav" id="12_2bi3f"]
+[ext_resource type="PackedScene" uid="uid://bn0o1fsvbq4xd" path="res://scenes/selection.tscn" id="12_45x15"]
+[ext_resource type="AudioStream" uid="uid://tyun04u3jpkt" path="res://sounds/block_destroy/block_destroy_3.wav" id="13_2lkai"]
+[ext_resource type="AudioStream" uid="uid://cled36nj6w07m" path="res://sounds/block_destroy/block_destroy_4.wav" id="14_nkqfp"]
 
 [node name="MiningBlock" type="CSGBox3D"]
 use_collision = true
@@ -49,8 +53,12 @@ texture_filter = 0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 script = ExtResource("2_wu7al")
-destroy_sound_emitter = ExtResource("3_b6li3")
+destroy_sound_emitter = ExtResource("3_ui2v3")
 sounds = Array[AudioStream]([ExtResource("4_3ukv7"), ExtResource("5_tjpe2"), ExtResource("6_tld40"), ExtResource("7_dos5y"), ExtResource("8_8i12g"), ExtResource("9_g2ifj"), ExtResource("10_8yix0"), ExtResource("11_uj7rk")])
+destroy_sounds = Array[AudioStream]([ExtResource("12_2bi3f"), ExtResource("13_2lkai"), ExtResource("14_nkqfp")])
+
+[node name="Selection" parent="." instance=ExtResource("12_45x15")]
+visible = false
 
 [connection signal="on_death" from="." to="AudioStreamPlayer3D" method="_on_death"]
 [connection signal="on_health_changed" from="." to="AudioStreamPlayer3D" method="_on_health_changed"]

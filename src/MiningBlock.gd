@@ -2,10 +2,11 @@ extends CSGBox3D
 class_name MiningBlock
 
 var ore: Ore : set = set_ore
+@onready var selection: Node = $"Selection"
 
 var health := 5 : get = get_health, set = set_health
 signal on_health_changed(health: int)
-signal on_death(ore: Ore)
+signal on_death(block: MiningBlock)
 
 @onready var textures := [
 	load("res://textures/destroy5.png"),
@@ -37,7 +38,7 @@ func set_health(value: int):
 	health = value
 
 	if(health <= 0):
-		on_death.emit(ore)
+		on_death.emit(self)
 		death()
 		queue_free()
 	else:
@@ -54,3 +55,9 @@ func update_decals():
 func death():
 	PlayerStats.ore_counts[ore.display_name] += 1
 	PlayerStats.save_stats()
+
+func on_selected():
+	selection.visible = true
+
+func on_deselected():
+	selection.visible = false

@@ -5,6 +5,7 @@ const SAVE_PATH = "user://epic_mining.json"
 var ore_counts := {}
 var money := 0
 var pickaxe_speed := 1.0
+var bombs := 0
 
 func _ready():
 	for ore_name in Refs.ores.keys():
@@ -19,7 +20,8 @@ func save_stats():
 
 	var data := {
 		"money": money,
-		"pickaxe_speed": pickaxe_speed
+		"pickaxe_speed": pickaxe_speed,
+		"bombs": bombs
 	}
 	var json_data = JSON.stringify(data)
 	file.store_line(json_data)
@@ -39,3 +41,4 @@ func load_stats():
 		if data:
 			money = data["money"]
 			pickaxe_speed = data["pickaxe_speed"]
+			bombs = data["bombs"]

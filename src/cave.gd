@@ -17,9 +17,6 @@ func _ready():
 	for depth in 5:
 		spawn_layer()
 
-func _physics_process(_delta):
-	check_player_depth()
-	
 func load_ores():
 	ores = Refs.ores.values()
 	default_ore = Arrays.find(ores, func(ore: Ore):
@@ -42,10 +39,24 @@ func spawn_block(grid_position: Vector3):
 	var real_position = grid_position * block_size
 	new_block.position = real_position
 
+	rng.randomize()
+	var orientation := rng.randi_range(1, 4)
+	match orientation:
+		1:
+			new_block.rotation_degrees = Vector3.ZERO
+		2:
+			new_block.rotation_degrees = Vector3(0, 90, 0)
+		3:
+			new_block.rotation_degrees = Vector3(0, 180, 0)
+		4:
+			new_block.rotation_degrees = Vector3(0, 270, 0)
+
 	var depth = -new_block.position.y / 2.0
 	var ore = get_random_ore(depth)
 	new_block.ore = ore
 	add_child(new_block)
+
+	new_block.on_death.connect(block_destroyed)
 
 func spawn_walls():
 	var new_walls := walls.instantiate() as Node3D
@@ -78,11 +89,8 @@ func get_random_ore(depth: int) -> Ore:
 	# Somehow missed all chance checks. Spawn default ore
 	return default_ore
 
-func check_player_depth():
-	var player_depth = -Refs.player.position.y / block_size.y
-	if current_depth - 2 <= player_depth:
-		var spawn_thread := Thread.new()
-		spawn_thread.start((func():
-			for i in 5:
-				spawn_layer()
-		), Thread.PRIORITY_LOW)
+func block_destroyed(block: MiningBlock):
+	var block_depth = -block.position.y / block_size.y
+	if current_depth - 2 <= block_depth:
+		for i in 3:
+			spawn_layer()

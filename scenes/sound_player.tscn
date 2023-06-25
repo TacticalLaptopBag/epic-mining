@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://dugbeq24s8wlo"]
+
+[ext_resource type="Script" path="res://src/sound_player.gd" id="1_naunk"]
+[ext_resource type="AudioStream" uid="uid://5ekb7esar4e5" path="res://sounds/block_destroy/block_destroy_2.wav" id="2_ur5l6"]
+[ext_resource type="AudioStream" uid="uid://tyun04u3jpkt" path="res://sounds/block_destroy/block_destroy_3.wav" id="3_3umx3"]
+[ext_resource type="AudioStream" uid="uid://cled36nj6w07m" path="res://sounds/block_destroy/block_destroy_4.wav" id="4_40iag"]
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D"]
+unit_size = 50.5
+script = ExtResource("1_naunk")
+sounds = Array[AudioStream]([ExtResource("2_ur5l6"), ExtResource("3_3umx3"), ExtResource("4_40iag")])
+
+[connection signal="finished" from="." to="." method="_on_finished"]
