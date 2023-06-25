@@ -81,5 +81,8 @@ func get_random_ore(depth: int) -> Ore:
 func check_player_depth():
 	var player_depth = -Refs.player.position.y / block_size.y
 	if current_depth - 2 <= player_depth:
-		for i in 3:
-			spawn_layer()
+		var spawn_thread := Thread.new()
+		spawn_thread.start((func():
+			for i in 5:
+				spawn_layer()
+		), Thread.PRIORITY_LOW)
