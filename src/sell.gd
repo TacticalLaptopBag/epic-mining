@@ -5,6 +5,7 @@ func _on_pressed():
 		var count: int = PlayerStats.ore_counts[ore_name]
 		PlayerStats.money += count * Refs.ores[ore_name].price
 		PlayerStats.ore_counts[ore_name] = 0
+		PlayerStats.save_stats()
 
 		var menu_down_event := InputEventAction.new()
 		menu_down_event.action = "menu"
