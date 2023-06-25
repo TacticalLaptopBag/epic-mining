@@ -20,7 +20,7 @@ func loadAll() -> Array:
             continue
 
         var rsc_path := dir_path+"/"+file_name
-        var resource := load(rsc_path)
+        var resource := ResourceLoader.load(rsc_path)
         resources.push_back(resource)
         file_name = dir.get_next()
     

@@ -1,12 +1,7 @@
 extends AudioStreamPlayer3D
 
 @export var destroy_sound_emitter: PackedScene
-
-var sounds_loader = ResourceArray.new("res://sounds/pick_hit")
-var sounds: Array
-
-func _ready():
-	sounds = sounds_loader.loadAll()
+@export var sounds: Array[AudioStream]
 
 func _on_health_changed(_health: int):
 	var random_sound = Arrays.random(sounds)

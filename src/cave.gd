@@ -2,7 +2,6 @@ extends Node3D
 
 const DEFAULT_ORE_TYPE := Ore.Type.DIRT
 
-var ores_loader = ResourceArray.new("res://ores")
 @onready var mining_block := preload("res://scenes/mining_block.tscn")
 @onready var walls := preload("res://scenes/walls.tscn")
 @export var walls_container: Node3D
@@ -22,7 +21,7 @@ func _physics_process(_delta):
 	check_player_depth()
 	
 func load_ores():
-	ores = ores_loader.loadAll()
+	ores = Refs.ores.values()
 	default_ore = Arrays.find(ores, func(ore: Ore):
 		return ore.block_type == DEFAULT_ORE_TYPE
 	)

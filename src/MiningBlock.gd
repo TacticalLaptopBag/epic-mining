@@ -23,9 +23,6 @@ signal on_death(ore: Ore)
 	$"Bottom",
 ]
 
-func load_material(material_name: String) -> Material:
-	return load("res://materials/mining-block/"+material_name+".tres")
-
 func _ready():
 	add_to_group("MiningBlock")
 
