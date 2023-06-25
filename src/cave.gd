@@ -42,7 +42,7 @@ func spawn_block(grid_position: Vector3):
 	var real_position = grid_position * block_size
 	new_block.position = real_position
 
-	var depth: int = -new_block.position.y / 2.0
+	var depth = -new_block.position.y / 2.0
 	var ore = get_random_ore(depth)
 	new_block.ore = ore
 	add_child(new_block)
