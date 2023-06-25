@@ -7,7 +7,7 @@
 script = ExtResource("2_uam56")
 block_type = 4
 display_name = "Diamond"
-chance_of_spawn = 5
-minimum_depth = 20
+chance_of_spawn = 3
+minimum_depth = 50
 price = 100
 material = ExtResource("1_uu2ow")

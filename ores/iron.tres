@@ -8,6 +8,6 @@ script = ExtResource("1_xbxxf")
 block_type = 2
 display_name = "Iron"
 chance_of_spawn = 15
-minimum_depth = 3
+minimum_depth = 6
 price = 25
 material = ExtResource("1_4jvyt")
