@@ -7,7 +7,7 @@
 script = ExtResource("1_8p2ha")
 block_type = 1
 display_name = "Stone"
-chance_of_spawn = 50
-minimum_depth = 1
+chance_of_spawn = 100
+minimum_depth = 3
 price = 5
 material = ExtResource("1_wcc5x")

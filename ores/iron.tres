@@ -9,5 +9,5 @@ block_type = 2
 display_name = "Iron"
 chance_of_spawn = 15
 minimum_depth = 6
-price = 25
+price = 50
 material = ExtResource("1_4jvyt")
