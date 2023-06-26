@@ -3,9 +3,9 @@ This is a simple game I threw together over a weekend to learn the Godot game en
 You can find the game's itch.io page [here](https://tacticallaptopbag.itch.io/epic-mining)
 
 ## Controls
-WASD - Move
-Left click - Mine
-F - Throw bomb
+WASD - Move  
+Left click - Mine  
+F - Throw bomb  
 ESC - Open menu/shop
 
 ## Opening in Godot
